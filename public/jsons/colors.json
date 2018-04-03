@@ -1,0 +1,33 @@
+var colors = [{
+    "color": "red",
+    "hex": "#ee5952"
+},
+{
+    "color": "blue",
+    "hex": "#82bdee"
+},
+{
+    "color": "yellow",
+    "hex": "#ffef9d"
+},
+{
+    "color": "green",
+    "hex": "#a5eda4"
+},
+{
+    "color": "purple",
+    "hex": "#cdbdee" 
+},
+{
+    "color": "orange",
+    "hex": "#f8bd77"
+},
+{
+    "color": "gray",
+    "hex": "#a0a0a0"
+},
+{
+    "color": " black",
+    "hex": "#292929"
+}
+]

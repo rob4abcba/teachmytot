@@ -1,0 +1,23 @@
+{
+  "name": "teach_my_tot",
+  "version": "1.0.0",
+  "description": "Teach My Tot with Service Workers",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hirzamitz/teachmytot_sw.git"
+  },
+  "author": "Hirza Pimentel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hirzamitz/teachmytot_sw/issues"
+  },
+  "homepage": "https://github.com/hirzamitz/teachmytot_sw#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "node-static": "^0.7.10"
+  }
+}

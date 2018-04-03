@@ -1,0 +1,44 @@
+<html lang="en-US">
+<head>
+    <title>teach my tot</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Description" content="hirzamitz - teach my tot">
+    <meta name="theme-color" content="#e8cbc0">
+    <meta property="og:image" content="public/images/logos/Icon-1024.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1024">
+    <meta property="og:image:height" content="1024">
+    <link rel="manifest" href="manifest.json">
+    <link href="public/stylesheets/index.css" rel="stylesheet">
+</head>
+<body>
+        <div id="header"></div>
+        <div id="dropdownMenuContent" class="hide">
+        </div>
+        <div id="main">
+            <div id="content">            
+                <div id="title" class="hide"></div>
+                <div id="number"></div>
+                <div id="buttonsNumNextAndSpeak">
+                    <button id="buttonSpeak">SPEAK</button>
+                    <button id="buttonNext">NEXT</button>
+                </div>
+            </div>
+        </div>
+        <div id="hiddenImages"></div>
+        <br/><br/><br/>
+        <div id="footer"></div>
+    </body>
+    <script src='public/jsons/colors.json'></script>
+    <script src="public/scripts/serviceworkerController.js"></script> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="public/scripts/createHeaderFooter.js"></script> 
+    <script src="public/scripts/showFlashcard.js"></script>
+    <script>
+        $( window ).on("load", function() {
+            randomNumber(document);
+            addButtonClicks(window, document);
+        });
+    </script>
+</html>
