@@ -30,14 +30,22 @@
         <br/><br/><br/>
         <div id="footer"></div>
     </body>
-    <script src='public/jsons/colors.json'></script>
     <script src="public/scripts/serviceworkerController.js"></script> 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="public/scripts/createHeaderFooter.js"></script> 
     <script src="public/scripts/showFlashcard.js"></script>
     <script>
+        $.getJSON('/public/jsons/colors.json', data => {
+            +   randomLetter(document, data);
+        }).done(function() {
+            
+        }).fail(function(error) {
+            console.log("GetJSON Error", error);
+        }).always(function() {
+
+        });
+
         $( window ).on("load", function() {
-            randomLetter(document);
             addButtonClicks(window, document);
         });
     </script>

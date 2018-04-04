@@ -1,4 +1,8 @@
-var staticCacheName = 'teachMyTot-static-v2';
+var staticCacheName = 'teachMyTot-static-v3';
+var shapesJSON_path = '/public/jsons/shapes.json';
+var colorsJSON_path = '/public/jsons/colors.json';
+
+self.importScripts('node_modules/idb/lib/idb.js');
 
 // A LIST OF LOCAL RESOURCES WE ALWAYS WANT TO BE CACHED IN THE BACKGROUND
 const PRECACHE_URLS_BK = [
@@ -9,7 +13,9 @@ const PRECACHE_URLS_BK = [
   'public/images/menu.png',
   'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js',
   'https://fonts.googleapis.com/css?family=Itim',
+  'http://fonts.googleapis.com/css?family=Itim',
   'https://fonts.gstatic.com/s/itim/v2/0nknC9ziJOYe8ANAluzaZwQ.woff',
+  'http://fonts.gstatic.com/s/itim/v2/0nknC9ziJOYe8ANAluzaZwQ.woff',
   'https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js',
   'public/images/shapes/red_circle.png',
   'public/images/shapes/red_square.png',
@@ -73,7 +79,7 @@ const PRECACHE_URLS_BK = [
   'public/images/shapes/gray_rectangle.png',
   'public/images/shapes/gray_star.png',
   'public/images/shapes/gray_oval.png',
-  'public/images/shapes/gray_diamond.png',
+  'public/images/shapes/gray_diamond.png'
 ];
 
 // A LIST OF LOCAL RESOURCES WE ALWAYS WANT TO BE CACHED
@@ -85,12 +91,11 @@ const PRECACHE_URLS = [
   '/addition.html',
   '/subtraction.html',
   '/iconcredits.html',
+  'node_modules/idb/lib/idb.js',
   'public/scripts/serviceworkerController.js',
   'public/scripts/createHeaderFooter.js',
   'public/scripts/showFlashcard.js',
-  'public/jsons/shapes.json',
-  'public/jsons/colors.json',
-  'public/stylesheets/index.css',
+  'public/stylesheets/index.css'
 ];
 
 // ADD THE RESOURCES TO THE CACHE WHEN THE SERVICE WORKER IS INSTALLED
@@ -111,16 +116,18 @@ self.addEventListener('install', function(event) {
 // AT THIS POINT, WE CAN DELETE THE OLD CACHE
 self.addEventListener('activate', function(event) {
     event.waitUntil(
-      caches.keys().then(function(cacheNames) {
-        return Promise.all(
-          cacheNames.filter(function(cacheName) {
-            return cacheName.startsWith('teachMyTot-') &&
-                   cacheName != staticCacheName;
-          }).map(function(cacheName) {
-            return caches.delete(cacheName);
-          })
-        );
-      })
+      loadDatabase().then(function(){
+        caches.keys().then(function(cacheNames) {
+          return Promise.all(
+            cacheNames.filter(function(cacheName) {
+              return cacheName.startsWith('teachMyTot-') &&
+                    cacheName != staticCacheName;
+            }).map(function(cacheName) {
+              return caches.delete(cacheName);
+            })
+          );
+        })
+      })  
     );
   });
 
@@ -157,6 +164,12 @@ self.addEventListener('fetch', function (event) {
   event.respondWith(
       caches.match(request)
           .then(function (response) {
+                if (requestUrl.pathname.startsWith(shapesJSON_path)) {
+                  return serveObjects(request,'shapes');
+                }   
+                if (requestUrl.pathname.startsWith(colorsJSON_path)) {
+                  return serveObjects(request,'colors');
+                }   
                 if (response) {
                     return response;
                 }  
@@ -173,3 +186,57 @@ self.addEventListener('message', function (event) {
         self.skipWaiting();
     }
 });
+
+function loadDatabase() {
+  return idb.open('teachMyTot', 1, function(upgradeDb) {
+      var shapeStore = upgradeDb.createObjectStore('shapes', {
+        keyPath: 'id'
+      });
+      var colorStore = upgradeDb.createObjectStore('colors', {
+        keyPath: 'id'
+      });
+
+      loadJSON(colorsJSON_path).then(colors => {
+        storeObjects(colors,'colors');
+      })
+
+      loadJSON(shapesJSON_path).then(shapes => {
+        storeObjects(shapes,'shapes');
+      })
+    
+  });  
+}
+
+async function loadJSON(path){
+  const response = await fetch(path);
+  return await response.json();
+}
+
+function storeObjects(data, type){
+  return idb.open('teachMyTot', 1).then(function(db) {
+    var myObjects = db.transaction(type, 'readwrite');
+    var myStore = myObjects.objectStore(type);
+    Array.from(data).forEach(object =>{
+      myStore.put(object);
+    });
+  })
+}
+
+function serveObjects(request, type){
+  return idb.open('teachMyTot', 1).then(function(db) {
+    
+    var myObject = db.transaction(type, 'readonly');
+    var store = myObject.objectStore(type);
+    // RETURN THE ARRAY OF COLORS/SHAPES OBJECTS FROM INDEXEDDB
+    return store.getAll();
+
+  }).then(function(objects) {
+    if (objects) {
+      return new Response(JSON.stringify(objects));
+    }  
+    // OTHERWISE, FETCH FROM THE NETWORK, IF AVAILABLE
+    return fetch(request);
+
+  });
+}  
+

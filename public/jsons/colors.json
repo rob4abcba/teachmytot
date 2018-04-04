@@ -1,33 +1,41 @@
-var colors = [{
-    "color": "red",
-    "hex": "#ee5952"
-},
-{
-    "color": "blue",
-    "hex": "#82bdee"
-},
-{
-    "color": "yellow",
-    "hex": "#ffef9d"
-},
-{
-    "color": "green",
-    "hex": "#a5eda4"
-},
-{
-    "color": "purple",
-    "hex": "#cdbdee" 
-},
-{
-    "color": "orange",
-    "hex": "#f8bd77"
-},
-{
-    "color": "gray",
-    "hex": "#a0a0a0"
-},
-{
-    "color": " black",
-    "hex": "#292929"
-}
+[{
+        "id": 1,
+        "color": "red",
+        "hex": "#ee5952"
+    },
+    {
+        "id": 2,
+        "color": "blue",
+        "hex": "#82bdee"
+    },
+    {
+        "id": 3,
+        "color": "yellow",
+        "hex": "#ffef9d"
+    },
+    {
+        "id": 4,
+        "color": "green",
+        "hex": "#a5eda4"
+    },
+    {
+        "id": 5,
+        "color": "purple",
+        "hex": "#cdbdee" 
+    },
+    {
+        "id": 6,
+        "color": "orange",
+        "hex": "#f8bd77"
+    },
+    {
+        "id": 7,
+        "color": "gray",
+        "hex": "#a0a0a0"
+    },
+    {
+        "id": 8,
+        "color": "black",
+        "hex": "#292929"
+    }
 ]

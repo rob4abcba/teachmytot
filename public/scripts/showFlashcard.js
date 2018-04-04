@@ -10,10 +10,9 @@ function speakTitle(document){
 }
 
 // SELECT A RANDOM LETTER AND COLOR
-function randomLetter(document){
+function randomLetter(document, colors){
     var letterElement = document.getElementById('letter');
 
-    var colorIndex = Math.floor(Math.random() * colors.length); 
     var letterIndex = Math.floor(Math.random() * letters.length); 
 
     var letterValue = letters[letterIndex].toUpperCase()
@@ -23,17 +22,16 @@ function randomLetter(document){
     var title = document.getElementById('title');
     
     title.innerHTML = "Letter " + letterValue;
-    letterElement.setAttribute("style", "color: " + colors[colorIndex].hex + ";");
+    letterElement.setAttribute("style", "color: " + randomColor(colors) + ";");
     
 }
 
 // SELECT A RANDOM NUMBER AND COLOR
-function randomNumber(document){
+function randomNumber(document, colors){
     var maxNum = 20;
 
     var numElement = document.getElementById('number');
 
-    var colorIndex = Math.floor(Math.random() * colors.length); 
     var numValue = Math.floor(Math.random() * maxNum); 
 
     numElement.innerHTML = numValue;
@@ -41,7 +39,7 @@ function randomNumber(document){
     var title = document.getElementById('title');
     
     title.innerHTML = "Number " + numValue;
-    numElement.setAttribute("style", "color: " + colors[colorIndex].hex + ";");
+    numElement.setAttribute("style", "color: " + randomColor(colors) + ";");
     
 }
 
@@ -58,14 +56,12 @@ function randomShapes(document, shapes){
 }
 
 // SELECT A RANDOM ADD QUESTION
-function randomAdd(document){
+function randomAdd(document, colors){
 
-    var max = 10
-    var colorIndex = Math.floor(Math.random() * colors.length); 
-    var color = colors[colorIndex].hex 
+    var max = 10;
 
     var element = document.getElementById('expression');
-    element.setAttribute("style", "color: " + color + ";");
+    element.setAttribute("style", "color: " + randomColor(colors) + ";");
 
     var a = Math.ceil(Math.random() * max); 
     var b = Math.ceil(Math.random() * max); 
@@ -82,14 +78,12 @@ function randomAdd(document){
 
 
 // SELECT A RANDOM SUBTRACT QUESTION
-function randomSubtract(document){
+function randomSubtract(document, colors){
 
-    var max = 10
-    var colorIndex = Math.floor(Math.random() * colors.length); 
-    var color = colors[colorIndex].hex 
+    var max = 10;
 
     var element = document.getElementById('expression');
-    element.setAttribute("style", "color: " + color + ";");
+    element.setAttribute("style", "color: " + randomColor(colors) + ";");
 
     var a = Math.ceil(Math.random() * max); 
     var b = Math.ceil(Math.random() * a); 
@@ -103,6 +97,12 @@ function randomSubtract(document){
     title.innerHTML = a + "-" + b + "=" + diff;
     title.setAttribute("data-answer",readNumbers[a] + " minus " + readNumbers[b] + "=" + readNumbers[diff]);
  
+}
+
+// SELECTS A RANDOM COLOR FROM THE ARRAY
+function randomColor(colors){
+    var colorIndex = Math.floor(Math.random() * colors.length); 
+    return colors[colorIndex].hex;
 }
 
 // READS THE VALUE OF THE TITLE FIELD WHEN USER CLICKS THE SPEAK BUTTON
@@ -125,7 +125,8 @@ function addButtonClicks(window, document){
     $('#buttonSpeak').click(function(){
         speakTitle(document);
     });
-    
+
+
     $('#buttonNext').click(function(){
         window.location.reload();
     });
