@@ -8,4 +8,4 @@ This project was developed using HTML, CSS, and JavaScript as part of the Grow w
 * **Hirza Pimentel** - *Initial work* - [hirzamitz](https://github.com/hirzamitz)
 
 ## Deployment
-This is currently deployed on [Teach My Tot](https://teachmytot.hirzamitz.com)
+This is currently deployed on [Teach My Tot](https://teachmytot.netlify.com)
