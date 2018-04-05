@@ -1,4 +1,8 @@
 
+@font-face {
+    font-family: "Itim";
+    src: url("/public/stylesheets/fonts/Itim/Itim-Regular.ttf");
+}
 body{
     vertical-align: middle;
     margin: 0;
@@ -12,7 +16,7 @@ body{
 div#main{
     height:88%;
     text-align: center;
-    margin:0 auto 0 auto;
+    margin:0 auto 50px auto;
     padding:0;
     display: flex;
     align-items: center;
@@ -191,7 +195,7 @@ div#letter{
     display:block;
     overflow: hidden
 }
-#buttonSpeak, #buttonNext{
+#buttonSpeak, #buttonNumberNext, #buttonShapeNext, #buttonLetterNext, #buttonAdditionNext, #buttonSubtractionNext{
     width: 100px;
     padding: 10px 25px 10px 25px;
     margin: 0 10px 0 0;
@@ -302,7 +306,7 @@ div#iconcredits{
         margin:15vh 0 0 0;
         font-size:16px!important;
     }
-    #buttonSpeak, #buttonNext{
+    #buttonSpeak, #buttonNumberNext, #buttonShapeNext, #buttonLetterNext, #buttonAdditionNext, #buttonSubtractionNext{
         width: 75px;
         padding: 7px 15px 7px 15px;
         margin: 0 10px 0 0;

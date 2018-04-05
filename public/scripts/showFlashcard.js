@@ -17,8 +17,7 @@ function randomLetter(document, colors){
 
     var letterValue = letters[letterIndex].toUpperCase()
 
-    letterElement.innerHTML = letterValue;
-    
+    updateTextWithFadeIn("#letter", letterValue);
     var title = document.getElementById('title');
     
     title.innerHTML = "Letter " + letterValue;
@@ -34,8 +33,7 @@ function randomNumber(document, colors){
 
     var numValue = Math.floor(Math.random() * maxNum); 
 
-    numElement.innerHTML = numValue;
-    
+    updateTextWithFadeIn("#number", numValue);
     var title = document.getElementById('title');
     
     title.innerHTML = "Number " + numValue;
@@ -44,11 +42,11 @@ function randomNumber(document, colors){
 }
 
 // SELECT A RANDOM SHAPE
-function randomShapes(document, shapes){
+function randomShape(document, shapes){
     var image = document.getElementById('shape');
     var shapeIndex = Math.floor(Math.random() * shapes.length); 
-    
-    image.setAttribute("src", shapes[shapeIndex].src);
+
+    image.setAttribute("src", shapes[shapeIndex].src)
     
     var title = document.getElementById('title');
     
@@ -67,8 +65,8 @@ function randomAdd(document, colors){
     var b = Math.ceil(Math.random() * max); 
     var sum = a + b
 
-    element.innerHTML = a + "+" + b + "=?";
-    
+    updateTextWithFadeIn("#expression", a + "+" + b + "=?");
+
     var title = document.getElementById('title');
     
     title.innerHTML = a + "+" + b + "=" + sum;
@@ -90,13 +88,39 @@ function randomSubtract(document, colors){
 
     var diff = a - b
 
-    element.innerHTML = a + "-" + b + "=?";
+    updateTextWithFadeIn("#expression", a + "-" + b + "=?");
     
     var title = document.getElementById('title');
     
     title.innerHTML = a + "-" + b + "=" + diff;
     title.setAttribute("data-answer",readNumbers[a] + " minus " + readNumbers[b] + "=" + readNumbers[diff]);
  
+}
+
+// FADE IN NEW SHAPE WHEN CLICKING NEXT
+function updateShapesWithFadeIn(){
+    /*$('#shape').on('load', function () {    
+        $("#shapeDiv").css({
+            opacity:'0'
+        })
+        .animate( { opacity:'1' }, { duration: 400})
+    })*/
+}
+// SLIDE IN NEW TEXT WHEN CLICKING NEXT
+function updateTextWithSlideIn(elementID,textValue){
+    $(elementID).html(textValue).css({
+        position:'relative',
+        left: "-50%"
+    })
+    .animate({left: "0"}, { duration: 400} )
+}
+
+// FADE IN NEW TEXT WHEN CLICKING NEXT
+function updateTextWithFadeIn(elementID,textValue){
+    $(elementID).html(textValue).css({
+        opacity:'0'
+    })
+    .animate({opacity:'1'}, { duration: 400} )
 }
 
 // SELECTS A RANDOM COLOR FROM THE ARRAY
@@ -114,7 +138,7 @@ function speakAnswer(document){
     window.speechSynthesis.speak(utterance);
 }
 
-// DEFINE CLICK EVENTS FOR BUTTONSPEAK, BUTTONNEXT AND BUTTONMENU
+// DEFINE CLICK EVENTS FOR BUTTONSPEAK AND BUTTONMENU
 function addButtonClicks(window, document){
     $('#buttonAnswer').click(function(){
         var element = document.getElementById('expression');
@@ -124,11 +148,6 @@ function addButtonClicks(window, document){
 
     $('#buttonSpeak').click(function(){
         speakTitle(document);
-    });
-
-
-    $('#buttonNext').click(function(){
-        window.location.reload();
     });
     
     $('#buttonMenu').click(function(){
@@ -141,6 +160,43 @@ function addButtonClicks(window, document){
             $('#dropdownMenuContent').removeClass('hide');
         }
     });    
+}
+
+// DEFINE CLICK EVENT FOR BUTTONNEXT IN THE LETTERS PAGE
+function addLetterNextClick(window, document, data){
+    $('#buttonLetterNext').click(function(){
+        randomLetter(document, data);
+    });
+}
+
+// DEFINE CLICK EVENT FOR BUTTONNEXT IN THE NUMBERS PAGE
+function addNumberNextClick(window, document, data){
+    $('#buttonNumberNext').click(function(){
+        randomNumber(document, data);
+    });
+}
+
+// DEFINE CLICK EVENT FOR BUTTONNEXT IN THE SHAPES PAGE
+function addShapeNextClick(window, document, data){
+    $('#buttonShapeNext').click(function(){
+        randomShape(document, data);
+    });
+    // ADD ANIMATION FOR IMAGE LOAD EVENT
+    updateShapesWithFadeIn();
+}
+
+// DEFINE CLICK EVENT FOR BUTTONNEXT IN THE ADDITION PAGE
+function addAdditionNextClick(window, document, data){
+    $('#buttonAdditionNext').click(function(){
+        randomAdd(document, data);
+    });
+}
+
+// DEFINE CLICK EVENT FOR BUTTONNEXT IN THE SUBTRACTION PAGE
+function addSubtractionNextClick(window, document, data){
+    $('#buttonSubtractionNext').click(function(){
+        randomSubtract(document, data);
+    });
 }
 
 // CLOSE THE DROPDOWN MENU IF USER CLICKS OUTSIDE OF IT

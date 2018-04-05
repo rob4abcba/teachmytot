@@ -1,9 +1,13 @@
 <html lang="en-US">
 <head>
-    <title>teach my tot</title>
+    <title>Teach My Tot</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" sizes="192x192" href="/public/images/logos/Icon-192.png">
+    <link rel="apple-touch-icon" href="/public/images/logos/Icon-192.png">
+    <meta name="apple-mobile-web-app-title" content="Teach My Tot">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="Description" content="hirzamitz - teach my tot">
+    <meta name="Description" content="Offline First Flashcard App for Teaching Toddlers and Preschoolers">
+    <meta name="mobile-web-app-capable" content="yes">
     <meta name="theme-color" content="#e8cbc0">
     <meta property="og:image" content="public/images/logos/Icon-1024.png">
     <meta property="og:image:type" content="image/png">
@@ -21,22 +25,22 @@
                 <div id="title" class="hide"></div>
                 <div id="buttonsLetNextAndSpeak">
                     <button id="buttonSpeak">SPEAK</button>
-                    <button id="buttonNext">NEXT</button>
+                    <button id="buttonLetterNext">NEXT</button>
                 </div>
 
             </div>
         </div>
-        <div id="hiddenImages"></div>
-        <br/><br/><br/>
         <div id="footer"></div>
     </body>
     <script src="public/scripts/serviceworkerController.js"></script> 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="public/scripts/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="public/scripts/createHeaderFooter.js"></script> 
     <script src="public/scripts/showFlashcard.js"></script>
     <script>
+
         $.getJSON('/public/jsons/colors.json', data => {
             +   randomLetter(document, data);
+                addLetterNextClick(window, document, data);
         }).done(function() {
             
         }).fail(function(error) {
@@ -44,7 +48,7 @@
         }).always(function() {
 
         });
-
+        
         $( window ).on("load", function() {
             addButtonClicks(window, document);
         });
