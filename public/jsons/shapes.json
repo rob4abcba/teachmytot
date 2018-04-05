@@ -1,314 +1,314 @@
-var shapes = [{
+[{
         "id": 1,
         "desc": "red circle",
-        "src": "public/images/shapes/red_circle.png",
+        "src": "/public/images/shapes/red_circle.png"
     },
     {
         "id": 2,
         "desc": "red square",
-        "src": "public/images/shapes/red_square.png",
+        "src": "/public/images/shapes/red_square.png"
     },
     {
         "id": 3,
         "desc": "red triangle",
-        "src": "public/images/shapes/red_triangle.png",
+        "src": "/public/images/shapes/red_triangle.png"
     },
     {
         "id": 4,
         "desc": "red rectangle",
-        "src": "public/images/shapes/red_rectangle.png",
+        "src": "/public/images/shapes/red_rectangle.png"
     },
     {
         "id": 5,
         "desc": "red star",
-        "src": "public/images/shapes/red_star.png",
+        "src": "/public/images/shapes/red_star.png"
     },
     {
         "id": 6,
         "desc": "red oval",
-        "src": "public/images/shapes/red_oval.png",
+        "src": "/public/images/shapes/red_oval.png"
     },
     {
         "id": 7,
         "desc": "red diamond",
-        "src": "public/images/shapes/red_diamond.png",
+        "src": "/public/images/shapes/red_diamond.png"
     },        
     {   
         "id": 8,
         "desc": "blue circle",
-        "src": "public/images/shapes/blue_circle.png",
+        "src": "/public/images/shapes/blue_circle.png"
     },
     {
         "id": 9,
         "desc": "blue square",
-        "src": "public/images/shapes/blue_square.png",
+        "src": "/public/images/shapes/blue_square.png"
     },
     {
         "id": 10,
         "desc": "blue triangle",
-        "src": "public/images/shapes/blue_triangle.png",
+        "src": "/public/images/shapes/blue_triangle.png"
     },
     {
         "id": 11,
         "desc": "blue rectangle",
-        "src": "public/images/shapes/blue_rectangle.png",
+        "src": "/public/images/shapes/blue_rectangle.png"
     },
     {
         "id": 12,
         "desc": "blue star",
-        "src": "public/images/shapes/blue_star.png",
+        "src": "/public/images/shapes/blue_star.png"
     },
     {
         "id": 13,
         "desc": "blue oval",
-        "src": "public/images/shapes/blue_oval.png",
+        "src": "/public/images/shapes/blue_oval.png"
     },
     {
         "id": 14,
         "desc": "blue diamond",
-        "src": "public/images/shapes/blue_diamond.png",
+        "src": "/public/images/shapes/blue_diamond.png"
     },
     {
         "id": 15,
         "desc": "green circle",
-        "src": "public/images/shapes/green_circle.png",
+        "src": "/public/images/shapes/green_circle.png"
     },
     {
         "id": 16,
         "desc": "green square",
-        "src": "public/images/shapes/green_square.png",
+        "src": "/public/images/shapes/green_square.png"
     },
     {
         "id": 17,
         "desc": "green triangle",
-        "src": "public/images/shapes/green_triangle.png",
+        "src": "/public/images/shapes/green_triangle.png"
     },
     {
         "id": 18,
         "desc": "green rectangle",
-        "src": "public/images/shapes/green_rectangle.png",
+        "src": "/public/images/shapes/green_rectangle.png"
     },
     {
         "id": 19,
         "desc": "green star",
-        "src": "public/images/shapes/green_star.png",
+        "src": "/public/images/shapes/green_star.png"
     },
     {
         "id": 20,
         "desc": "green oval",
-        "src": "public/images/shapes/green_oval.png",
+        "src": "/public/images/shapes/green_oval.png"
     },
     {
         "id": 21,
         "desc": "green diamond",
-        "src": "public/images/shapes/green_diamond.png",
+        "src": "/public/images/shapes/green_diamond.png"
     },
     {
         "id": 22,
         "desc": "black circle",
-        "src": "public/images/shapes/black_circle.png",
+        "src": "/public/images/shapes/black_circle.png"
     },
     {
         "id": 23,
         "desc": "black square",
-        "src": "public/images/shapes/black_square.png",
+        "src": "/public/images/shapes/black_square.png"
     },
     {
         "id": 24,
         "desc": "black triangle",
-        "src": "public/images/shapes/black_triangle.png",
+        "src": "/public/images/shapes/black_triangle.png"
     },
     {
         "id": 25,
         "desc": "black rectangle",
-        "src": "public/images/shapes/black_rectangle.png",
+        "src": "/public/images/shapes/black_rectangle.png"
     },
     {
         "id": 26,
         "desc": "black star",
-        "src": "public/images/shapes/black_star.png",
+        "src": "/public/images/shapes/black_star.png"
     },
     {
         "id": 27,
         "desc": "black oval",
-        "src": "public/images/shapes/black_oval.png",
+        "src": "/public/images/shapes/black_oval.png"
     },
     {
         "id": 28,
         "desc": "black diamond",
-        "src": "public/images/shapes/black_diamond.png",
+        "src": "/public/images/shapes/black_diamond.png"
     },    {
         "id": 29,
         "desc": "white circle",
-        "src": "public/images/shapes/white_circle.png",
+        "src": "/public/images/shapes/white_circle.png"
     },
     {
         "id": 30,
         "desc": "white square",
-        "src": "public/images/shapes/white_square.png",
+        "src": "/public/images/shapes/white_square.png"
     },
     {
         "id": 31,
         "desc": "white triangle",
-        "src": "public/images/shapes/white_triangle.png",
+        "src": "/public/images/shapes/white_triangle.png"
     },
     {
         "id": 32,
         "desc": "white rectangle",
-        "src": "public/images/shapes/white_rectangle.png",
+        "src": "/public/images/shapes/white_rectangle.png"
     },
     {
         "id": 33,
         "desc": "white star",
-        "src": "public/images/shapes/white_star.png",
+        "src": "/public/images/shapes/white_star.png"
     },
     {
         "id": 34,
         "desc": "white oval",
-        "src": "public/images/shapes/white_oval.png",
+        "src": "/public/images/shapes/white_oval.png"
     },
     {
         "id": 35,
         "desc": "white diamond",
-        "src": "public/images/shapes/white_diamond.png",
+        "src": "/public/images/shapes/white_diamond.png"
     },
     {
         "id": 36,
         "desc": "orange circle",
-        "src": "public/images/shapes/orange_circle.png",
+        "src": "/public/images/shapes/orange_circle.png"
     },
     {
         "id": 37,
         "desc": "orange square",
-        "src": "public/images/shapes/orange_square.png",
+        "src": "/public/images/shapes/orange_square.png"
     },
     {
         "id": 38,
         "desc": "orange triangle",
-        "src": "public/images/shapes/orange_triangle.png",
+        "src": "/public/images/shapes/orange_triangle.png"
     },
     {
         "id": 39,
         "desc": "orange rectangle",
-        "src": "public/images/shapes/orange_rectangle.png",
+        "src": "/public/images/shapes/orange_rectangle.png"
     },
     {
         "id": 40,
         "desc": "orange star",
-        "src": "public/images/shapes/orange_star.png",
+        "src": "/public/images/shapes/orange_star.png"
     },
     {
         "id": 41,
         "desc": "orange oval",
-        "src": "public/images/shapes/orange_oval.png",
+        "src": "/public/images/shapes/orange_oval.png"
     },
     {
         "id": 42,
         "desc": "orange diamond",
-        "src": "public/images/shapes/orange_diamond.png",
+        "src": "/public/images/shapes/orange_diamond.png"
     },
     {
         "id": 43,
         "desc": "purple circle",
-        "src": "public/images/shapes/purple_circle.png",
+        "src": "/public/images/shapes/purple_circle.png"
     },
     {
         "id": 44,
         "desc": "purple square",
-        "src": "public/images/shapes/purple_square.png",
+        "src": "/public/images/shapes/purple_square.png"
     },
     {
         "id": 45,
         "desc": "purple triangle",
-        "src": "public/images/shapes/purple_triangle.png",
+        "src": "/public/images/shapes/purple_triangle.png"
     },
     {
         "id": 46,
         "desc": "purple rectangle",
-        "src": "public/images/shapes/purple_rectangle.png",
+        "src": "/public/images/shapes/purple_rectangle.png"
     },
     {
         "id": 47,
         "desc": "purple star",
-        "src": "public/images/shapes/purple_star.png",
+        "src": "/public/images/shapes/purple_star.png"
     },
     {
         "id": 48,
         "desc": "purple oval",
-        "src": "public/images/shapes/purple_oval.png",
+        "src": "/public/images/shapes/purple_oval.png"
     },
     {
         "id": 49,
         "desc": "purple diamond",
-        "src": "public/images/shapes/purple_diamond.png",
+        "src": "/public/images/shapes/purple_diamond.png"
     },    {
         "id": 50,
         "desc": "yellow circle",
-        "src": "public/images/shapes/yellow_circle.png",
+        "src": "/public/images/shapes/yellow_circle.png"
     },
     {
         "id": 51,
         "desc": "yellow square",
-        "src": "public/images/shapes/yellow_square.png",
+        "src": "/public/images/shapes/yellow_square.png"
     },
     {
         "id": 52,
         "desc": "yellow triangle",
-        "src": "public/images/shapes/yellow_triangle.png",
+        "src": "/public/images/shapes/yellow_triangle.png"
     },
     {
         "id": 53,
         "desc": "yellow rectangle",
-        "src": "public/images/shapes/yellow_rectangle.png",
+        "src": "/public/images/shapes/yellow_rectangle.png"
     },
     {
         "id": 54,
         "desc": "yellow star",
-        "src": "public/images/shapes/yellow_star.png",
+        "src": "/public/images/shapes/yellow_star.png"
     },
     {
         "id": 55,
         "desc": "yellow oval",
-        "src": "public/images/shapes/yellow_oval.png",
+        "src": "/public/images/shapes/yellow_oval.png"
     },
     {
         "id": 56,
         "desc": "yellow diamond",
-        "src": "public/images/shapes/yellow_diamond.png",
+        "src": "/public/images/shapes/yellow_diamond.png"
     },
     {
         "id": 57,
         "desc": "gray circle",
-        "src": "public/images/shapes/gray_circle.png",
+        "src": "/public/images/shapes/gray_circle.png"
     },
     {
         "id": 58,
         "desc": "gray square",
-        "src": "public/images/shapes/gray_square.png",
+        "src": "/public/images/shapes/gray_square.png"
     },
     {
         "id": 59,
         "desc": "gray triangle",
-        "src": "public/images/shapes/gray_triangle.png",
+        "src": "/public/images/shapes/gray_triangle.png"
     },
     {
         "id": 60,
         "desc": "gray rectangle",
-        "src": "public/images/shapes/gray_rectangle.png",
+        "src": "/public/images/shapes/gray_rectangle.png"
     },
     {
         "id": 61,
         "desc": "gray star",
-        "src": "public/images/shapes/gray_star.png",
+        "src": "/public/images/shapes/gray_star.png"
     },
     {
         "id": 62,
         "desc": "gray oval",
-        "src": "public/images/shapes/gray_oval.png",
+        "src": "/public/images/shapes/gray_oval.png"
     },
     {
         "id": 63,
         "desc": "gray diamond",
-        "src": "public/images/shapes/gray_diamond.png",
+        "src": "/public/images/shapes/gray_diamond.png"
     }
-];
+]
