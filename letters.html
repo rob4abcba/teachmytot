@@ -40,7 +40,7 @@
 
         $.getJSON('/public/jsons/colors.json', data => {
             +   randomLetter(document, data);
-                addLetterNextClick(window, document, data);
+                addLetterNextClick(document, data);
         }).done(function() {
             
         }).fail(function(error) {
@@ -50,7 +50,7 @@
         });
         
         $( window ).on("load", function() {
-            addButtonClicks(window, document);
+            addButtonClicks(document);
         });
     </script>
 </html>

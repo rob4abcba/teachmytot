@@ -42,7 +42,7 @@
     <script>
         $.getJSON('/public/jsons/shapes.json', data => {
         +   randomShape(document, data);
-            addShapeNextClick(window, document, data);
+            addShapeNextClick(document, data)
         }).done(function() {
             
         }).fail(function(error) {
@@ -51,7 +51,7 @@
             
         });
         $( window ).on("load", function() {
-            addButtonClicks(window, document);
+            addButtonClicks(document);
         });
     </script>
 </html>

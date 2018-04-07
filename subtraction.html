@@ -39,7 +39,7 @@
     <script>
         $.getJSON('/public/jsons/colors.json', data => {
         +   randomSubtract(document, data);
-            addSubtractionNextClick(window, document, data);
+            addSubtractionNextClick(document, data);
         }).done(function() {
             
         }).fail(function(error) {
@@ -48,7 +48,7 @@
 
         });
         $( window ).on("load", function() {
-            addButtonClicks(window, document);
+            addButtonClicks(document);
         });
     </script>
 </html>

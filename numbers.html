@@ -39,7 +39,7 @@
     <script>
         $.getJSON('/public/jsons/colors.json', data => {
         +   randomNumber(document, data);
-            addNumberNextClick(window, document, data);
+            addNumberNextClick(document, data);
         }).done(function() {
             
         }).fail(function(error) {
@@ -48,7 +48,7 @@
 
         });
         $( window ).on("load", function() {
-            addButtonClicks(window, document);
+            addButtonClicks(document);
         });
     </script>
 </html>

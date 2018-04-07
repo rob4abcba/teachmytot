@@ -139,7 +139,7 @@ function speakAnswer(document){
 }
 
 // DEFINE CLICK EVENTS FOR BUTTONSPEAK AND BUTTONMENU
-function addButtonClicks(window, document){
+function addButtonClicks(document){
     $('#buttonAnswer').click(function(){
         var element = document.getElementById('expression');
         element.innerHTML = title.innerHTML;
@@ -149,35 +149,24 @@ function addButtonClicks(window, document){
     $('#buttonSpeak').click(function(){
         speakTitle(document);
     });
-    
-    $('#buttonMenu').click(function(){
-        if ($('#dropdownMenuContent').hasClass('show')){
-            $('#dropdownMenuContent').addClass('hide');
-            $('#dropdownMenuContent').removeClass('show');
-        }
-        else{
-            $('#dropdownMenuContent').addClass('show');
-            $('#dropdownMenuContent').removeClass('hide');
-        }
-    });    
 }
 
 // DEFINE CLICK EVENT FOR BUTTONNEXT IN THE LETTERS PAGE
-function addLetterNextClick(window, document, data){
+function addLetterNextClick(document, data){
     $('#buttonLetterNext').click(function(){
         randomLetter(document, data);
     });
 }
 
 // DEFINE CLICK EVENT FOR BUTTONNEXT IN THE NUMBERS PAGE
-function addNumberNextClick(window, document, data){
+function addNumberNextClick(document, data){
     $('#buttonNumberNext').click(function(){
         randomNumber(document, data);
     });
 }
 
 // DEFINE CLICK EVENT FOR BUTTONNEXT IN THE SHAPES PAGE
-function addShapeNextClick(window, document, data){
+function addShapeNextClick(document, data){
     $('#buttonShapeNext').click(function(){
         randomShape(document, data);
     });
@@ -186,14 +175,14 @@ function addShapeNextClick(window, document, data){
 }
 
 // DEFINE CLICK EVENT FOR BUTTONNEXT IN THE ADDITION PAGE
-function addAdditionNextClick(window, document, data){
+function addAdditionNextClick(document, data){
     $('#buttonAdditionNext').click(function(){
         randomAdd(document, data);
     });
 }
 
 // DEFINE CLICK EVENT FOR BUTTONNEXT IN THE SUBTRACTION PAGE
-function addSubtractionNextClick(window, document, data){
+function addSubtractionNextClick(document, data){
     $('#buttonSubtractionNext').click(function(){
         randomSubtract(document, data);
     });
