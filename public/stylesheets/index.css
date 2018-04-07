@@ -71,6 +71,18 @@ div#footer{
     vertical-align: middle;
     padding-left:10px;
 }
+#contactMe{
+    width: 17px;
+    height: auto;
+    vertical-align: middle;
+    padding-left:10px;
+    position: fixed;
+    right:10px;
+    bottom: 12px;
+}
+#iconCredit:hover, #contactMe:hover{
+    transform: scale(1.2,1.2);
+}
 #logo{
     margin: 0;
     padding: 0 10px 0 0;
@@ -158,7 +170,7 @@ div#expression{
     text-align: center;
     font-size:27vh;
     font-weight:bold;
-    margin:0;
+    margin:0 auto 0 auto;
     padding:0;
     color:#ffffff;
     display:block;
@@ -168,7 +180,7 @@ div#number{
     text-align: center;
     font-size:45vh;
     font-weight:bold;
-    margin:0;
+    margin:0 auto 0 auto;
     padding:0;
     color:#ffffff;
     text-shadow: 1vh 1vh 0px rgba(0,0,0,0.2);
@@ -180,7 +192,7 @@ div#letter{
     text-align: center;
     font-size:45vh;
     font-weight:bold;
-    margin:0;
+    margin:0 auto 0 auto;
     padding:0;
     color:#ffffff;
     text-shadow: 1vh 1vh 0px rgba(0,0,0,0.2);
@@ -191,7 +203,8 @@ div#letter{
     height:40vh;
     min-height:150px;
     max-height:450px;
-    margin:5vh 0 0 0;
+    margin:5vh auto 0 auto;
+    padding:0;
     display:block;
     overflow: hidden
 }
@@ -275,6 +288,7 @@ div#iconcredits{
     div#main{
         height: auto;
         padding: 0;
+        margin:0;
     }
     #buttonMenu{
         width: 3vh;

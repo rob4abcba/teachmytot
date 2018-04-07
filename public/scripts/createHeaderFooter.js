@@ -61,14 +61,23 @@ var divFooter = document.getElementById("footer");
 var spanFooter = createSpan(document, "&copy; 2018 TEACHMYTOT ", "");
 divFooter.appendChild(spanFooter);
 
-var footerInfo = {
+var iconCredit = {
     href:"/iconcredits.html",
     title:""
 }
 
-var aFooter = createA(document, footerInfo)
-aFooter.appendChild(createImg(document, "iconCredit", "Icon Credits", "/public/images/logos/heart.png"));
-divFooter.appendChild(aFooter);
+var aFooter1 = createA(document, iconCredit)
+aFooter1.appendChild(createImg(document, "iconCredit", "Icon Credits", "/public/images/logos/heart.png"));
+divFooter.appendChild(aFooter1);
+
+var contactMe = {
+    href:"mailto:me@hirzamitz.com?Subject=Teach%20My%20Tot",
+    title:""
+}
+aFooter2 = createA(document, contactMe)
+aFooter2.appendChild(createImg(document, "contactMe", "Contact Me", "/public/images/logos/email.png"));
+divFooter.appendChild(aFooter2);
+
 
 function createSpan(document, text, className){
     var spanElement = document.createElement('span'); 
@@ -76,5 +85,16 @@ function createSpan(document, text, className){
     spanElement.setAttribute("class", className);
     return spanElement;
 }
+
+$('#buttonMenu').click(function(){
+    if ($('#dropdownMenuContent').hasClass('show')){
+        $('#dropdownMenuContent').addClass('hide');
+        $('#dropdownMenuContent').removeClass('show');
+    }
+    else{
+        $('#dropdownMenuContent').addClass('show');
+        $('#dropdownMenuContent').removeClass('hide');
+    }
+});    
 
 

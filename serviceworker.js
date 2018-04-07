@@ -1,4 +1,5 @@
-var staticCacheName = 'teachMyTot-static-v4';
+var staticHostName = 'TestTeachMyTot';
+var staticCacheName = staticHostName + '-static-v1';
 var shapesJSON_path = '/public/jsons/shapes.json';
 var colorsJSON_path = '/public/jsons/colors.json';
 
@@ -80,21 +81,21 @@ const PRECACHE_URLS = [
   '/addition.html',
   '/subtraction.html',
   '/iconcredits.html',
-  '/node_modules/idb/lib/idb.js',
-  '/public/scripts/serviceworkerController.js',
-  '/public/scripts/createHeaderFooter.js',
-  '/public/scripts/showFlashcard.js',
-  '/public/stylesheets/index.css',
-  '/public/stylesheets/fonts/Itim/Itim-Regular.ttf',
-  '/public/scripts/libs/jquery/3.1.1/jquery.min.js',
+  'public/scripts/serviceworkerController.js',
+  'public/scripts/createHeaderFooter.js',
+  'public/scripts/showFlashcard.js',
+  'public/stylesheets/index.css',
+  'public/stylesheets/fonts/Itim/Itim-Regular.ttf',
+  'public/scripts/libs/jquery/3.1.1/jquery.min.js',
   '/favicon.ico',
   '/manifest.json',
   '/public/images/logos/Icon-1024.png',
   '/public/images/logos/Icon-192.png',
-  '/public/images/logos/logo.png',
   '/public/images/logos/babies.png',
   '/public/images/logos/heart.png',
+  '/public/images/logos/email.png',
   '/public/images/menu.png',
+  '/node_modules/idb/lib/idb.js'
 ];
 
 // ADD THE RESOURCES TO THE CACHE WHEN THE SERVICE WORKER IS INSTALLED
@@ -115,11 +116,12 @@ self.addEventListener('install', function(event) {
 // AT THIS POINT, WE CAN DELETE THE OLD CACHE
 self.addEventListener('activate', function(event) {
     event.waitUntil(
+      self.clients.claim(),
       loadDatabase().then(function(){
         caches.keys().then(function(cacheNames) {
           return Promise.all(
             cacheNames.filter(function(cacheName) {
-              return cacheName.startsWith('teachMyTot-') &&
+              return cacheName.startsWith(staticHostName + '-') &&
                     cacheName != staticCacheName;
             }).map(function(cacheName) {
               return caches.delete(cacheName);
@@ -175,7 +177,12 @@ self.addEventListener('fetch', function (event) {
                 }  
                 // OTHERWISE, FETCH FROM THE NETWORK, IF AVAILABLE
                 return fetch(request);
-          })
+          }).catch(function () {
+            return caches.match(request)
+                .then(function (response) {
+                    return response;
+                })
+        })
     );
 });
 
@@ -187,19 +194,20 @@ self.addEventListener('message', function (event) {
     }
 });
 
+// CREATE THE SHAPES AND COLORS OBJECT STORES IN INDEXEDDB
 function loadDatabase() {
-  return idb.open('teachMyTot', 1, function(upgradeDb) {
+  return idb.open(staticHostName, 1, function(upgradeDb) {
       var shapeStore = upgradeDb.createObjectStore('shapes', {
         keyPath: 'id'
       });
       var colorStore = upgradeDb.createObjectStore('colors', {
         keyPath: 'id'
       });
-
+      // ADD THE ARRAY OF COLORS OBJECT TO THE DATABASE
       loadJSON(colorsJSON_path).then(colors => {
         storeObjects(colors,'colors');
       })
-
+      // ADD THE ARRAY OF SHAPES OBJECT TO THE DATABASE
       loadJSON(shapesJSON_path).then(shapes => {
         storeObjects(shapes,'shapes');
       })
@@ -207,13 +215,15 @@ function loadDatabase() {
   });  
 }
 
+// LOAD THE ARRAY OF OBJECTS FROM THE JSON FILE
 async function loadJSON(path){
   const response = await fetch(path);
   return await response.json();
 }
 
+// ADD THE OBJECTS TO THE OBJECT STORE
 function storeObjects(data, type){
-  return idb.open('teachMyTot', 1).then(function(db) {
+  return idb.open(staticHostName, 1).then(function(db) {
     var myObjects = db.transaction(type, 'readwrite');
     var myStore = myObjects.objectStore(type);
     Array.from(data).forEach(object =>{
@@ -222,8 +232,9 @@ function storeObjects(data, type){
   })
 }
 
+// RETURN THE SHAPES/COLORS OBJECT FROM THE CACHE OR FROM THE NETWORK
 function serveObjects(request, type){
-  return idb.open('teachMyTot', 1).then(function(db) {
+  return idb.open(staticHostName, 1).then(function(db) {
     
     var myObject = db.transaction(type, 'readonly');
     var store = myObject.objectStore(type);
