@@ -1,5 +1,5 @@
 var staticHostName = 'TestTeachMyTot';
-var staticCacheName = staticHostName + '-static-v1';
+var staticCacheName = staticHostName + '-static-v2';
 var shapesJSON_path = '/public/jsons/shapes.json';
 var colorsJSON_path = '/public/jsons/colors.json';
 
@@ -78,15 +78,18 @@ const PRECACHE_URLS = [
   '/index.html',
   '/letters.html',
   '/numbers.html',
+  '/numbers_es.html',
+  '/numbers_ch.html',
   '/addition.html',
   '/subtraction.html',
   '/iconcredits.html',
-  'public/scripts/serviceworkerController.js',
-  'public/scripts/createHeaderFooter.js',
-  'public/scripts/showFlashcard.js',
-  'public/stylesheets/index.css',
-  'public/stylesheets/fonts/Itim/Itim-Regular.ttf',
-  'public/scripts/libs/jquery/3.1.1/jquery.min.js',
+  '/public/scripts/serviceworkerController.js',
+  '/public/scripts/createHeaderFooter.js',
+  '/public/scripts/showFlashcard.js',
+  '/public/stylesheets/index.css',
+  '/public/stylesheets/fonts/Itim/Itim-Regular.ttf',
+  '/public/stylesheets/fonts/Noto_Sans/NotoSans-Regular.ttf',
+  '/public/scripts/libs/jquery/3.1.1/jquery.min.js',
   '/favicon.ico',
   '/manifest.json',
   '/public/images/logos/Icon-1024.png',
@@ -206,11 +209,11 @@ function loadDatabase() {
       // ADD THE ARRAY OF COLORS OBJECT TO THE DATABASE
       loadJSON(colorsJSON_path).then(colors => {
         storeObjects(colors,'colors');
-      })
+      });
       // ADD THE ARRAY OF SHAPES OBJECT TO THE DATABASE
       loadJSON(shapesJSON_path).then(shapes => {
         storeObjects(shapes,'shapes');
-      })
+      });
     
   });  
 }

@@ -3,6 +3,11 @@
     font-family: "Itim";
     src: url("/public/stylesheets/fonts/Itim/Itim-Regular.ttf");
 }
+@font-face {
+    font-family: 'Noto Sans';
+    font-style: normal;
+    src: url("/public/stylesheets/fonts/Noto_Sans/NotoSans-Regular.ttf") format('truetype');
+}
 body{
     vertical-align: middle;
     margin: 0;
@@ -165,6 +170,16 @@ div#title{
     color:#584731;
     font-family:'Itim',sans-serif;
 }
+div#language{
+    border: 0;
+    text-align: center;
+    font-size:5vh;
+    margin:0 0 6vh 0;
+    padding:0;
+    width:100%;
+    color:#584731;
+    font-family:'Itim',sans-serif;
+}
 div#expression{
     border: 0;
     text-align: center;
@@ -178,15 +193,17 @@ div#expression{
 div#number{
     border: 0;
     text-align: center;
-    font-size:45vh;
+    font-size:40vh;
     font-weight:bold;
     margin:0 auto 0 auto;
     padding:0;
-    color:#ffffff;
+    color:#a0a0a0;
     text-shadow: 1vh 1vh 0px rgba(0,0,0,0.2);
     display:block;
 }
-
+.chinese{
+    font-family:'Noto Sans',sans-serif;
+}
 div#letter{
     border: 0;
     text-align: center;
@@ -198,7 +215,6 @@ div#letter{
     text-shadow: 1vh 1vh 0px rgba(0,0,0,0.2);
     display:block;
 }
-
 #shape{
     height:40vh;
     min-height:150px;
@@ -281,7 +297,7 @@ div#iconcredits{
 }
 
 /* USE A MEDIA QUERY TO ADD A BREAKPOINT AT 756PX*/
-@media (max-width:765px){
+@media (max-width:800px){
     body{
         height: auto;
     }
@@ -337,7 +353,7 @@ div#iconcredits{
         min-height:75px;
     }
     div#expression{
-        font-size:70px!important;
+        font-size:12vh!important;
         padding-bottom:25px;
     }
 }   

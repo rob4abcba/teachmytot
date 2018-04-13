@@ -29,15 +29,19 @@ function createImg(document, id, alt, src){
 
 /* ADD THE NAVIGATION MENU */
 var linkInfo = [
-    {   href:"addition.html",
+    {   href:"/addition.html",
         title:"ADDING NUMBERS"},
-    {   href:"letters.html",
+    {   href:"/letters.html",
         title:"LETTERS"},         
-    {   href:"numbers.html",
+    {   href:"/numbers.html",
         title:"NUMBERS"},
+    {   href:"/numbers_ch.html",
+        title:"NUMBERS (MANDARIN)"},
+    {   href:"/numbers_es.html",
+        title:"NUMBERS (SPANISH)"},
     {   href:"/",
         title:"SHAPES AND COLORS"},
-    {   href:"subtraction.html",
+    {   href:"/subtraction.html",
         title:"SUBTRACTING NUMBERS"},
 ];
 
@@ -77,7 +81,6 @@ var contactMe = {
 aFooter2 = createA(document, contactMe)
 aFooter2.appendChild(createImg(document, "contactMe", "Contact Me", "/public/images/logos/email.png"));
 divFooter.appendChild(aFooter2);
-
 
 function createSpan(document, text, className){
     var spanElement = document.createElement('span'); 
