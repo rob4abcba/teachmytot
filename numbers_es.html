@@ -24,7 +24,7 @@
             <div id="content">            
                 <div id="title" class="hide"></div>
                 <div id="number"></div>
-                <div id="language">ENGLISH</div>
+                <div id="language">SPANISH</div>
                 <div id="buttonsNumNextAndSpeak">
                     <button id="buttonSpeak">SPEAK</button>
                     <button id="buttonNumberNext">NEXT</button>
@@ -38,9 +38,10 @@
     <script src="public/scripts/createHeaderFooter.js"></script> 
     <script src="public/scripts/showFlashcard.js"></script>
     <script>
+        var lang = 'es-419';
         $.getJSON('/public/jsons/colors.json', data => {
-        +   randomNumber(document, data);
-            addNumberNextClick(document, data);
+        +   randomNumber(document, data, lang);
+            addNumberNextClick(document, data, lang);
         }).done(function() {
             
         }).fail(function(error) {
@@ -49,7 +50,7 @@
 
         });
         $( window ).on("load", function() {
-            addButtonClicks(document);
+            addButtonClicks(document, lang);
         });
     </script>
 </html>

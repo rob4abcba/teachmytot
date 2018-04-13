@@ -1,11 +1,15 @@
 var letters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 var readNumbers = ["zero","one","two","three","four","five","six","seven","eight","nine","ten","eleven","twelve","thirteen","fourteen","fifteen","sixteen","seventeen","eighteen","nineteen","twenty"];
+var mandarin = ["零","一","二","三","四","五","六","七","八","九","十"];
 
 // READS THE VALUE OF THE TITLE FIELD WHEN USER CLICKS THE SPEAK BUTTON
-function speakTitle(document){
+function speakTitle(document, lang){
     var title = document.getElementById('title');
     var utterance = new SpeechSynthesisUtterance(title.innerHTML);
     utterance.volume = 1;
+    if (lang){
+        utterance.lang = lang;
+    }
     window.speechSynthesis.speak(utterance);
 }
 
@@ -26,17 +30,34 @@ function randomLetter(document, colors){
 }
 
 // SELECT A RANDOM NUMBER AND COLOR
-function randomNumber(document, colors){
-    var maxNum = 20;
+function randomNumber(document, colors, lang){
+
+    var maxNum;
+    var numValue;
+    
+    if (lang == 'zh-CN'){
+        maxNum = mandarin.length;
+        var index = Math.floor(Math.random() * maxNum);
+        numValue = index; 
+        var transElement = document.getElementById('language');
+        transElement.innerHTML = "MANDARIN: <span style='font-size:4vh;font-weight:bold'>" + mandarin[index] +'</span>';
+    }
+    else{
+        maxNum = 20;
+        numValue = Math.floor(Math.random() * maxNum); 
+    }
 
     var numElement = document.getElementById('number');
-
-    var numValue = Math.floor(Math.random() * maxNum); 
-
     updateTextWithFadeIn("#number", numValue);
     var title = document.getElementById('title');
     
-    title.innerHTML = "Number " + numValue;
+    if (lang){
+        title.innerHTML = numValue;
+    }
+    else{
+        title.innerHTML = "Number " + numValue;
+    }
+    
     numElement.setAttribute("style", "color: " + randomColor(colors) + ";");
     
 }
@@ -47,7 +68,7 @@ function randomShape(document, shapes){
     var shapeIndex = Math.floor(Math.random() * shapes.length); 
 
     image.setAttribute("src", shapes[shapeIndex].src)
-    
+
     var title = document.getElementById('title');
     
     title.innerHTML = shapes[shapeIndex].desc;
@@ -99,12 +120,12 @@ function randomSubtract(document, colors){
 
 // FADE IN NEW SHAPE WHEN CLICKING NEXT
 function updateShapesWithFadeIn(){
-    /*$('#shape').on('load', function () {    
+    $('#shape').on('load', function () {    
         $("#shapeDiv").css({
             opacity:'0'
         })
         .animate( { opacity:'1' }, { duration: 400})
-    })*/
+    })
 }
 // SLIDE IN NEW TEXT WHEN CLICKING NEXT
 function updateTextWithSlideIn(elementID,textValue){
@@ -139,16 +160,16 @@ function speakAnswer(document){
 }
 
 // DEFINE CLICK EVENTS FOR BUTTONSPEAK AND BUTTONMENU
-function addButtonClicks(document){
+function addButtonClicks(document, lang){
     $('#buttonAnswer').click(function(){
         var element = document.getElementById('expression');
         element.innerHTML = title.innerHTML;
         speakAnswer(document);
     });
-
     $('#buttonSpeak').click(function(){
-        speakTitle(document);
-    });
+        speakTitle(document, lang);
+    });  
+    
 }
 
 // DEFINE CLICK EVENT FOR BUTTONNEXT IN THE LETTERS PAGE
@@ -159,9 +180,9 @@ function addLetterNextClick(document, data){
 }
 
 // DEFINE CLICK EVENT FOR BUTTONNEXT IN THE NUMBERS PAGE
-function addNumberNextClick(document, data){
+function addNumberNextClick(document, data, lang){
     $('#buttonNumberNext').click(function(){
-        randomNumber(document, data);
+        randomNumber(document, data, lang);
     });
 }
 
@@ -171,7 +192,7 @@ function addShapeNextClick(document, data){
         randomShape(document, data);
     });
     // ADD ANIMATION FOR IMAGE LOAD EVENT
-    updateShapesWithFadeIn();
+    updateShapesWithFadeIn()
 }
 
 // DEFINE CLICK EVENT FOR BUTTONNEXT IN THE ADDITION PAGE

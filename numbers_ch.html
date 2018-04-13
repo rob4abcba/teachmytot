@@ -1,9 +1,10 @@
-<html lang="en-US">
+<html>
 <head>
     <title>Teach My Tot</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="icon" sizes="192x192" href="/public/images/logos/Icon-192.png">
     <link rel="apple-touch-icon" href="/public/images/logos/Icon-192.png">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="apple-mobile-web-app-title" content="Teach My Tot">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="Description" content="Offline First Flashcard App for Teaching Toddlers and Preschoolers">
@@ -21,10 +22,10 @@
         <div id="dropdownMenuContent" class="hide">
         </div>
         <div id="main">
-            <div id="content">            
+            <div id="content">           
                 <div id="title" class="hide"></div>
                 <div id="number"></div>
-                <div id="language">ENGLISH</div>
+                <div id="language" class="chinese">MANDARIN</div> 
                 <div id="buttonsNumNextAndSpeak">
                     <button id="buttonSpeak">SPEAK</button>
                     <button id="buttonNumberNext">NEXT</button>
@@ -38,9 +39,10 @@
     <script src="public/scripts/createHeaderFooter.js"></script> 
     <script src="public/scripts/showFlashcard.js"></script>
     <script>
+        var lang = 'zh-CN';
         $.getJSON('/public/jsons/colors.json', data => {
-        +   randomNumber(document, data);
-            addNumberNextClick(document, data);
+        +   randomNumber(document, data, lang);
+            addNumberNextClick(document, data, lang);
         }).done(function() {
             
         }).fail(function(error) {
@@ -49,7 +51,7 @@
 
         });
         $( window ).on("load", function() {
-            addButtonClicks(document);
+            addButtonClicks(document, lang);
         });
     </script>
 </html>
