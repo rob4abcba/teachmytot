@@ -8,8 +8,10 @@ Currently, there are five flashcard activities available:
 1. Adding Numbers 
 2. Letters
 3. Numbers
-4. Shapes and Colors
-5. Subtracting Numbers
+4. Numbers (Mandarin)
+5. Numbers (Spanish)
+6. Shapes and Colors
+7. Subtracting Numbers
 
 ## Author
 * **Hirza Pimentel** - *Initial work* - [hirzamitz](https://github.com/hirzamitz)
