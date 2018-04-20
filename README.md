@@ -17,6 +17,6 @@ Currently, there are five flashcard activities available:
 * **Hirza Pimentel** - *Initial work* - [hirzamitz](https://github.com/hirzamitz)
 
 ## Deployment
-The Teach My Tot - Service Worker and Cache API Only version is deployed [here](https://teachmytot.hirzamitz.com). This version allows Teach My Tot to work as a standalone mobile web app on iOS 11.3.
+The Teach My Tot - Service Worker and Cache API Only version is deployed [here](https://teachmytot.netlify.com). This version allows Teach My Tot to work as a standalone mobile web app on iOS 11.3.
 
-The Teach My Tot - Service Worker, Cache API and IndexedDB version is deployed [here](https://teachmytot.netlify.com)
+The Teach My Tot - Service Worker, Cache API and IndexedDB version is deployed [here](https://testteachmytot.netlify.com)
