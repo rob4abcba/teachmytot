@@ -215,7 +215,7 @@ div#letter{
     text-shadow: 1vh 1vh 0px rgba(0,0,0,0.2);
     display:block;
 }
-#shape{
+#shape, #animal{
     height:40vh;
     min-height:150px;
     max-height:450px;
@@ -224,7 +224,7 @@ div#letter{
     display:block;
     overflow: hidden
 }
-#buttonSpeak, #buttonNumberNext, #buttonShapeNext, #buttonLetterNext, #buttonAdditionNext, #buttonSubtractionNext{
+#buttonSpeak, #buttonNumberNext, #buttonImageNext, #buttonLetterNext, #buttonAdditionNext, #buttonSubtractionNext{
     width: 100px;
     padding: 10px 25px 10px 25px;
     margin: 0 10px 0 0;
@@ -256,7 +256,7 @@ div#letter{
     font-family:'Itim',sans-serif;
     text-align: center!important;
 }
-#buttonsShapesNextAndSpeak{
+#buttonsImageNextAndSpeak{
     width:100%;
     display:block;
     margin: 5vh 0 0 0;
@@ -336,7 +336,7 @@ div#iconcredits{
         margin:15vh 0 0 0;
         font-size:16px!important;
     }
-    #buttonSpeak, #buttonNumberNext, #buttonShapeNext, #buttonLetterNext, #buttonAdditionNext, #buttonSubtractionNext{
+    #buttonSpeak, #buttonNumberNext, #buttonImageNext, #buttonLetterNext, #buttonAdditionNext, #buttonSubtractionNext{
         width: 75px;
         padding: 7px 15px 7px 15px;
         margin: 0 10px 0 0;
@@ -351,6 +351,10 @@ div#iconcredits{
     #shape{
         height:30vh;
         min-height:75px;
+    }
+    #animal{
+        height:40vh;
+        min-height:100px;
     }
     div#expression{
         font-size:12vh!important;

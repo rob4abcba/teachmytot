@@ -31,6 +31,8 @@ function createImg(document, id, alt, src){
 var linkInfo = [
     {   href:"/addition.html",
         title:"ADDING NUMBERS"},
+    {   href:"/animals.html",
+        title:"ANIMALS"},   
     {   href:"/letters.html",
         title:"LETTERS"},         
     {   href:"/numbers.html",
