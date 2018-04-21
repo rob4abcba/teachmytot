@@ -21,8 +21,8 @@
         </div>
         <div id="main">
             <div id="content">            
-                <div id="shapeDiv">
-                    <img id="shape" alt="shape">
+                <div id="animalDiv">
+                    <img id="animal" alt="animal">
                     <div id="title"></div>
                 </div>
                 <div id="buttonsImageNextAndSpeak">
@@ -38,9 +38,9 @@
     <script src="public/scripts/createHeaderFooter.js"></script> 
     <script src="public/scripts/showFlashcard.js"></script>
     <script>
-        $.getJSON('/public/jsons/shapes.json', data => {
-        +   randomImage(document, data, "shape");
-            addImageNextClick(document, data, "shape");
+        $.getJSON('/public/jsons/animals.json', data => {
+        +   randomImage(document, data, "animal");
+            addImageNextClick(document, data, "animal");
         }).done(function() {
             
         }).fail(function(error) {

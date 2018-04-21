@@ -34,7 +34,7 @@ function randomNumber(document, colors, lang){
 
     var maxNum;
     var numValue;
-    
+
     if (lang == 'zh-CN'){
         maxNum = mandarin.length;
         var index = Math.floor(Math.random() * maxNum);
@@ -62,16 +62,16 @@ function randomNumber(document, colors, lang){
     
 }
 
-// SELECT A RANDOM SHAPE
-function randomShape(document, shapes){
-    var image = document.getElementById('shape');
-    var shapeIndex = Math.floor(Math.random() * shapes.length); 
+// SELECT A RANDOM IMAGE
+function randomImage(document, images, elementID){
+    var image = document.getElementById(elementID);
+    var index = Math.floor(Math.random() * images.length); 
 
-    image.setAttribute("src", shapes[shapeIndex].src)
+    image.setAttribute("src", images[index].src)
 
     var title = document.getElementById('title');
     
-    title.innerHTML = shapes[shapeIndex].desc;
+    title.innerHTML = images[index].desc;
 }
 
 // SELECT A RANDOM ADD QUESTION
@@ -118,10 +118,10 @@ function randomSubtract(document, colors){
  
 }
 
-// FADE IN NEW SHAPE WHEN CLICKING NEXT
-function updateShapesWithFadeIn(){
-    $('#shape').on('load', function () {    
-        $("#shapeDiv").css({
+// FADE IN NEW IMAGE WHEN CLICKING NEXT
+function updateImageWithFadeIn(elementID){
+    $(elementID).on('load', function () {    
+        $(elementID + "Div").css({
             opacity:'0'
         })
         .animate( { opacity:'1' }, { duration: 400})
@@ -187,12 +187,12 @@ function addNumberNextClick(document, data, lang){
 }
 
 // DEFINE CLICK EVENT FOR BUTTONNEXT IN THE SHAPES PAGE
-function addShapeNextClick(document, data){
-    $('#buttonShapeNext').click(function(){
-        randomShape(document, data);
+function addImageNextClick(document, data, elementID){
+    $('#buttonImageNext').click(function(){
+        randomImage(document, data, elementID);
     });
     // ADD ANIMATION FOR IMAGE LOAD EVENT
-    updateShapesWithFadeIn()
+    updateImageWithFadeIn(elementID)
 }
 
 // DEFINE CLICK EVENT FOR BUTTONNEXT IN THE ADDITION PAGE

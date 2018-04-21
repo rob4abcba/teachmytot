@@ -2,6 +2,7 @@ var staticHostName = 'TestTeachMyTot';
 var staticCacheName = staticHostName + '-static-v2';
 var shapesJSON_path = '/public/jsons/shapes.json';
 var colorsJSON_path = '/public/jsons/colors.json';
+var animalsJSON_path = '/public/jsons/animals.json';
 
 self.importScripts('/node_modules/idb/lib/idb.js');
 
@@ -69,7 +70,26 @@ const PRECACHE_URLS_BK = [
   '/public/images/shapes/gray_rectangle.png',
   '/public/images/shapes/gray_star.png',
   '/public/images/shapes/gray_oval.png',
-  '/public/images/shapes/gray_diamond.png'
+  '/public/images/shapes/gray_diamond.png',
+  '/public/images/animals/alligator.png',
+  '/public/images/animals/bear.png',
+  '/public/images/animals/bird.png',
+  '/public/images/animals/cat.png',
+  '/public/images/animals/chicken.png',
+  '/public/images/animals/cow.png',
+  '/public/images/animals/dog.png',
+  '/public/images/animals/duck.png',
+  '/public/images/animals/fish.png',
+  '/public/images/animals/frog.png',
+  '/public/images/animals/horse.png',
+  '/public/images/animals/lion.png',
+  '/public/images/animals/monkey.png',
+  '/public/images/animals/penguin.png',
+  '/public/images/animals/pig.png',
+  '/public/images/animals/rabbit.png',
+  '/public/images/animals/snake.png',
+  '/public/images/animals/whale.png',
+  '/public/images/animals/zebra.png'
 ];
 
 // A LIST OF LOCAL RESOURCES WE ALWAYS WANT TO BE CACHED
@@ -82,6 +102,7 @@ const PRECACHE_URLS = [
   '/numbers_ch.html',
   '/addition.html',
   '/subtraction.html',
+  '/animals.html',
   '/iconcredits.html',
   '/public/scripts/serviceworkerController.js',
   '/public/scripts/createHeaderFooter.js',
@@ -174,6 +195,9 @@ self.addEventListener('fetch', function (event) {
                 }   
                 if (requestUrl.pathname.startsWith(colorsJSON_path)) {
                   return serveObjects(request,'colors');
+                }
+                if (requestUrl.pathname.startsWith(animalsJSON_path)) {
+                  return serveObjects(request,'animals');
                 }  
                 if (response) {
                     return response;
@@ -206,6 +230,10 @@ function loadDatabase() {
       var colorStore = upgradeDb.createObjectStore('colors', {
         keyPath: 'id'
       });
+      var animalStore = upgradeDb.createObjectStore('animals', {
+        keyPath: 'id'
+      });
+
       // ADD THE ARRAY OF COLORS OBJECT TO THE DATABASE
       loadJSON(colorsJSON_path).then(colors => {
         storeObjects(colors,'colors');
@@ -214,7 +242,10 @@ function loadDatabase() {
       loadJSON(shapesJSON_path).then(shapes => {
         storeObjects(shapes,'shapes');
       });
-    
+      // ADD THE ARRAY OF ANIMAL OBJECT TO THE DATABASE
+      loadJSON(animalsJSON_path).then(animals => {
+        storeObjects(animals,'animals');
+      });
   });  
 }
 
