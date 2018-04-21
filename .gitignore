@@ -1,3 +1,4 @@
+node_modules/.bin
 node_modules/colors
 node_modules/mime
 node_modules/minimist
