@@ -6,12 +6,13 @@ This project was developed using HTML, CSS, and JavaScript as part of the Grow w
 
 Currently, there are five flashcard activities available:
 1. Adding Numbers 
-2. Letters
-3. Numbers
-4. Numbers (Mandarin)
-5. Numbers (Spanish)
-6. Shapes and Colors
-7. Subtracting Numbers
+2. Animals
+3. Letters
+4. Numbers
+5. Numbers (Mandarin)
+6. Numbers (Spanish)
+7. Shapes and Colors
+8. Subtracting Numbers
 
 ## Author
 * **Hirza Pimentel** - *Initial work* - [hirzamitz](https://github.com/hirzamitz)
